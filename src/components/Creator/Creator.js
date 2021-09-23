@@ -40,6 +40,9 @@ class Creator extends React.Component {
       value: '',
       visibleButtons: false
     });
+    if (window.confirm('Do you really want to leave?')) {
+      alert('No problem :) !')
+    }
   }
 
   render() {
