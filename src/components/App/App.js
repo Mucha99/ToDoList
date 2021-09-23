@@ -10,7 +10,7 @@ import { settings } from '../../data/dataStore';
 
 class App extends React.Component {
   state = {
-    lists: this.props.list || [{...listData}],
+    lists: [{...listData}],
   }
 
   static propTypes = {
@@ -26,9 +26,9 @@ class App extends React.Component {
           key: state.lists.length ? state.lists[state.lists.length -1].key +1 :0,
           ...listData,
           title,
-        }
-      ]
-    }))
+        },
+      ],
+    }));
   }
 
   render() {
@@ -48,7 +48,7 @@ class App extends React.Component {
           ))}
         </div>
       </main>
-    )
+    );
   }
 }
 
