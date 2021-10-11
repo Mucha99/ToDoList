@@ -5,10 +5,14 @@ import styles from './Column.scss';
 import Card from '../Card/Card';
 // import Creator from '../Creator/Creator';
 import Icon from '../Icon/Icon';
-// import { settings } from '../../data/dataStore';
+import { settings } from '../../data/dataStore';
 
 
 class Column extends React.Component {
+    static defaultProps = {
+      icon: settings.defaultColumnIcon,
+    }
+
     static propTypes = {
       children: PropTypes.node,
       title: PropTypes.string,
