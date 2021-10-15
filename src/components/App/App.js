@@ -18,23 +18,11 @@ class App extends React.Component {
     subtitle: PropTypes.node,
     columns: PropTypes.array,
     lists: PropTypes.array,
-  }
-
-  addList(title){
-    this.setState(state => ({
-      lists: [
-        ...state.lists,
-        {
-          key: state.lists.length ? state.lists[state.lists.length -1].key +1 :0,
-          ...listData,
-          title,
-        },
-      ],
-    }));
+    addList: PropTypes.func,
   }
 
   render() {
-    const {title, subtitle, lists} = this.props;
+    const {title, subtitle, lists, addList} = this.props;
     return (
       <main className={styles.component}>
         <h1 className={styles.title}>{title}</h1>
@@ -42,7 +30,7 @@ class App extends React.Component {
         <div className={styles.creator}>
           <Creator 
             text={settings.listCreatorText} 
-            action={title => this.addList(title)} 
+            action={addList} 
           />
         </div>
         <div>

@@ -7,12 +7,13 @@ import styles from './List.scss';
 import Hero from '../Hero/Hero';
 import Column from '../Column/ColumnContainer';
 import Creator from '../Creator/Creator';
-import { settings } from '../../data/dataStore';
+import { listData, settings } from '../../data/dataStore';
 
 
 class List extends React.Component {
     static defaultProps = {
       description: settings.defaultListDescription,
+      image: listData.image,
     }
 
     static propTypes = {

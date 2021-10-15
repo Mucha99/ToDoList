@@ -1,10 +1,19 @@
 import { connect } from 'react-redux';
 import App from './App';
+import { getListsForList, createActionAddList } from '../../redux/listsRedux';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, props) => ({
   title: state.app.title,
   subtitle: state.app.subtitle,
-  lists: state.lists,
+  lists: getListsForList(state, props.id),
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch, props) => ({
+  addList: (title, subtitle) => dispatch(createActionAddList({
+    listId: props.id,
+    title,
+    subtitle,
+  })),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
